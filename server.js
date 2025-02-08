@@ -7,9 +7,9 @@ const db = knex({
     client: 'pg',
     connection: {
         host: '127.0.0.1',
-        user: 'testusername',
-        password: 'testpassowrd',
-        database: 'loginforandres'
+        user: 'Testusername',
+        password: 'Testpassword',
+        database: 'loginform'
     }
 })
 
@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('frontend/login.html', (req, res) => {
-    res.sendFile(path.join(initalPath, "frontend/login.html"));
+    res.sendFile(path.join(initalPath, "/frontend/login.html"));
 })
 
 app.get('/register', (req, res) => {
@@ -76,6 +76,6 @@ app.post('/login-user', (req, res) => {
 })
 
 
-app.listen(3000, (req, res) => {
-    console.log('listening on port 3000......')
+app.listen(5500, (req, res) => {
+    console.log('listening on port 5500......')
 })
