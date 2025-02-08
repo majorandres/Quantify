@@ -59,9 +59,9 @@ input,
     display: block;
     margin: 20px auto;
     border-radius: 5px;
-    background: rgba(19, 22, 22, 0.3);
+    background: rgba(159, 255, 255, 0.3);
     border: none;
-    color: navy;
+    color: rgb(117, 117, 255);
     padding: 15px;
     transition: .5s;
     text-transform: capitalize;
