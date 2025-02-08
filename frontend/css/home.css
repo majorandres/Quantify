@@ -209,7 +209,13 @@ p{
 
 #moving-banner p {
     display: inline-block;
-    animation: scroll-text 10s linear infinite;
+    animation: scroll-text 12s linear infinite;
+    width: 70%;
+    color: black;
+    background-image: url("https://www.publicdomainpictures.net/pictures/470000/nahled/vintage-clipart-banner-label-1664965789kpR.png");
+    background-size: cover;
+    background-position: calc(50% + 50px) 30%;
+    padding: 10px;
 }
 
 @keyframes scroll-text {
