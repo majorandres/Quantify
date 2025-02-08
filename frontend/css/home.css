@@ -16,7 +16,7 @@ body{
     background-color: white;
     background-size: cover;
     background-position: center;
-    font-family: 'roboto',sans-serif;
+    font-family: 'Roboto Condensed',sans-serif;
 }
 
 p{
@@ -67,7 +67,7 @@ p{
 }
 
 .welcome{
-    font-family: 'dosis';
+    font-family: 'Roboto Condensed';
     font-size: 100px;
     color: navy;
     font-weight: 800;
