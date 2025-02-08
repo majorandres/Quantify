@@ -20,12 +20,22 @@ body{
 }
 
 p{
-    font-weight: bolder;
+    font-weight: bold;
     color: rgb(40, 83, 225);
     font-family: 'Roboto Condensed', Times, serif;
     
 }
 
+
+section span{
+    position: absolute;
+    bottom: -50px;
+    background: transparent;
+    border-radius: 50%;
+    pointer-events:none;
+    box-shadow: inset 0 0 10px rgba(226, 126, 226, 0.5);
+    animation: animate 4s linear infinite;
+}
 .container{
     position: relative;
     width: 90%;
