@@ -31,7 +31,7 @@ if (!email || !password || !submitBtn) {
                 console.log("Email:", email.value);
                 console.log("Password:", password.value);
 
-                fetch('https://quantify-znpa.onrender.com/login-user',{
+                fetch('http://127.0.0.1:5000/login-user',{
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' }, //Changed header new Headers
                 body: JSON.stringify({
@@ -57,7 +57,7 @@ if (!email || !password || !submitBtn) {
             submitBtn.addEventListener('click', (event) => {
                 event.preventDefault(); //new
 
-                fetch('https://quantify-znpa.onrender.com/register-user', {
+                fetch('http://127.0.0.1:5000/register-user', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({
@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //table
     const tableBody = document.querySelector('.table tbody'); 
     const productNameInput = document.querySelector('.productNameInput');
+    const productCategoryInput = document.querySelector('#categoryInput');
     const productQuantityInput = document.querySelector('.productQuantityInput');
     const productPriceInput = document.querySelector('.productPriceInput');    
 
@@ -112,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         //get data
         const productName = productNameInput.value;
+        const category = productCategoryInput.value;
         const quantity = productQuantityInput.value;
         const price = productPriceInput.value;
 
@@ -121,6 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${productName}</td>
             <td>${quantity}</td>
             <td>$${price}</td>
+            <td>${category || 'No Category'}</td>
             <td>
                 <button class="btn btn-warning btn-sm">Edit</button>
                 <button class="btn btn-danger btn-sm">Delete</button>
@@ -132,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         //reset
         productNameInput.value = '';
+        productCategoryInput.value = '';
         productQuantityInput.value = '';
         productPriceInput.value = '';
 

@@ -7,16 +7,16 @@ const knex = require('knex');
 const db = knex({
     client: 'pg',
     connection: {
-        connectionString: 'postgresql://postgres:Andres1000@db.hjftofakyweqeoqsmtiy.supabase.co:5432/postgres',
-        ssl: { rejectUnauthorized: false }
+        host: '127.0.0.1',
+        user: 'postgres',
+        password: 'Andres1000',
+        database: 'loginform'
     }
-});
-
-
+})
 
 const app = express();
 
-let initalPath = path.join(__dirname, "frontend")
+let initalPath = path.join(__dirname, "public")
 
 app.use(cors());
 app.use(bodyParser.json());
