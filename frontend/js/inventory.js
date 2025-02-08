@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const productNameInput = document.querySelector('.productNameInput');
     const productQuantityInput = document.querySelector('.productQuantityInput');
     const productPriceInput = document.querySelector('.productPriceInput');
+    const productSalesInput = document.querySelector('.productSalesInput');
+    const productStockInput = document.querySelector('.productStockInput');
+    const productRepointInput = document.querySelector('.productRepointInput');
 
     let editingProductIndex = null;
 
@@ -30,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadProducts = () => {
         const savedProducts = JSON.parse(localStorage.getItem('products')) || [];
         savedProducts.forEach((product, index) => {
-            addProductToTable(product.name, product.quantity, product.price, index);
+            addProductToTable(product.name, product.quantity, product.price, product.sales, product.stock, product.repoint, index);
         });
     };
 
@@ -38,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('products', JSON.stringify(products));
     };
 
-    const addProductToTable = (productName, quantity, price, index) => {
+    const addProductToTable = (productName, quantity, price, sales, stock, repoint, index) => {
         const newRow = document.createElement('tr');
         newRow.setAttribute('data-index', index);
 
@@ -46,6 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${productName}</td>
             <td>${quantity}</td>
             <td>$${price}</td>
+            <td>${sales}</td>
+            <td>${stock}</td>
+            <td>${repoint}</td>
             <td>
                 <button class="btn btn-warning btn-sm edit-btn">Edit</button>
                 <button class="btn btn-danger btn-sm delete-btn">Delete</button>
@@ -64,14 +70,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const productName = productNameInput.value;
         const quantity = productQuantityInput.value;
         const price = productPriceInput.value;
+        const sales = productSalesInput.value;
+        const stock = productStockInput.value;
+        const repoint = productRepointInput.value;
 
         let savedProducts = JSON.parse(localStorage.getItem('products')) || [];
 
         if (editingProductIndex !== null) {
-            savedProducts[editingProductIndex] = { name: productName, quantity, price };
+            savedProducts[editingProductIndex] = { name: productName, quantity, price, sales, stock, repoint };
             editingProductIndex = null;
         } else {
-            savedProducts.push({ name: productName, quantity, price });
+            savedProducts.push({ name: productName, quantity, price, sales, stock, repoint });
         }
 
         updateLocalStorage(savedProducts);
@@ -88,6 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
         productNameInput.value = product.name;
         productQuantityInput.value = product.quantity;
         productPriceInput.value = product.price;
+        productSalesInput.value = product.sales;
+        productStockInput.value = product.stock;
+        productRepointInput.value = product.repoint;
 
         editingProductIndex = index; 
         proAddSection.classList.remove('hidden');
@@ -105,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const refreshTable = (products) => {
         tableBody.innerHTML = ''; 
         products.forEach((product, index) => {
-            addProductToTable(product.name, product.quantity, product.price, index);
+            addProductToTable(product.name, product.quantity, product.price, product.sales, product.stock, product.repoint, index);
         });
     };
     

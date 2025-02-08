@@ -37,11 +37,10 @@
                             <th>Product</th>
                             <th>Quantity</th>
                             <th>Price</th>
-                            <th>Actions</th>
                             <th>Units Sold(Last 30 Days)</th>
                             <th>Current Stock</th>
                             <th>Reorder Print</th>
-                            <th>Demand Level</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -70,6 +69,18 @@
                 <div class="mb-3">
                     <label>Price</label>
                     <input type="number" class="form-control productPriceInput" placeholder="Enter buying price" min="1" required />
+                </div>
+                <div class="mb-3">
+                    <label>Units sold (Last 30 days)</label>
+                    <input type="number" class="form-control productSalesInput" placeholder="Enter buying price" min="1" required />
+                </div>
+                <div class="mb-3">
+                    <label>Current Stock</label>
+                    <input type="number" class="form-control productStockInput" placeholder="Enter buying price" min="1" required />
+                </div>
+                <div class="mb-3">
+                    <label>Reorder Point</label>
+                    <input type="number" class="form-control productRepointInput" placeholder="Enter buying price" min="1" required />
                 </div>
                 <div class="proAdd__form__buttons">
                     <button type="button" class="proAddCancelBtn btn btn-outline-danger">Discard</button>
