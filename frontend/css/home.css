@@ -22,11 +22,14 @@ body{
     position: relative;
     width: 90%;
     height: 87vh;
-    border: 5px solid navy;
+    border: 10px solid navy;
+    border-radius: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: grey;
+    box-shadow:
+    inset 60px 0 120px rgb(79, 177, 222),  /* left magenta */
+    inset -60px 0 120px rgb(252, 252, 252); /* right cyan */;
 }
 
 .logout{
