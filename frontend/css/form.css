@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+      
+  }
+
+*:focus{
+    outline: none;
+
+}
+
+body{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    font-family: 'roboto',sans-serif;
+}
+
+.form{
+    width: 400px;
+    height: auto;
+    color: navy;
+    font-family: 'Marker Felt', sans-serif;
+
+
+}
+
+.heading{
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 80px;
+    font-weight: 300;
+    margin-bottom: 50px;
+
+}
+
+input{
+    width: 80%;
+    height: 35px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 5px;
+    background: rgba(19, 22, 22, 0.3);
+    border: none;
+    color: navy;
+    padding: 15px;
+    transition: .5s;
+    text-transform: capitalize;
+}
