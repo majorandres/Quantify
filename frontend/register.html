@@ -39,6 +39,34 @@
     
     </div>
     <!--    -->
-    <script src ="js/form.js"></script>
+    <!-- <script src ="js/form.js"></script> -->
+
+    <script>
+        document.getElementById('register-form').addEventListener('submit', function(event){
+            event.preventDefault();
+
+            const name = document.querySelector('input[name="name"]').value;
+            const email = document.querySelector('input[name="email"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+
+            fetch('http://127.0.0.1:5500/register-user', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({name, email, password})
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.name){
+                    alert('Registeration successful!');
+                    window.location.href = 'login.html'; //Send user to login page after success
+                }else{
+                    alert(data);
+                }
+            })
+            .catch(err => console.error('Error:', err));
+        });
+    </script>
+
+
 </body>
 </html>
