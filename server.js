@@ -7,12 +7,12 @@ const knex = require('knex');
 const db = knex({
     client: 'pg',
     connection: {
-        host: '127.0.0.1',
-        user: 'postgres',
-        password: 'Andres1000',
-        database: 'loginform'
+        connectionString: 'postgresql://postgres:Andres1000@db.hjftofakyweqeoqsmtiy.supabase.co:5432/postgres',
+        ssl: { rejectUnauthorized: false }
     }
-})
+});
+
+
 
 const app = express();
 
