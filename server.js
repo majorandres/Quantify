@@ -3,6 +3,13 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const knex = require('knex');
 
+const db = knex({
+    client: 'pg',
+    connection: {
+        host
+    }
+})
+
 const app = express();
 
 let initalPath = path.join(__dirname, "public")
