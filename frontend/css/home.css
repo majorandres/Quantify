@@ -198,3 +198,25 @@ p{
     width: 30px;
     animation-delay: 2s;
 }
+
+#moving-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+}
+
+#moving-banner p {
+    display: inline-block;
+    animation: scroll-text 10s linear infinite;
+}
+
+@keyframes scroll-text {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
