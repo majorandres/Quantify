@@ -30,8 +30,44 @@
         </div>
         <div class = "col">
             <div class="d-flex flex-column align-items-center vh-100 justify-content-center ps-5">
-                <img src="https://cdn.corporatefinanceinstitute.com/assets/line-graph.jpg" alt="placeholder graph">
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <canvas id="myChart" width="400" height="200"></canvas>
+                <script>
+
+                    const ctx = document.getElementById('myChart').getContext('2d');
                 
+
+                    const data = {
+                      labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                      datasets: [{
+                        label: 'Items Sold',
+                        data: [12, 19, 3, 5, 2, 3],
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderWidth: 2
+                      }]
+                    };
+                
+                    
+                    const config = {
+                      type: 'line',   
+                      data: data,
+                      options: {
+                        responsive: true,
+                        plugins: {
+                          tooltip: {
+                            enabled: true
+                          }
+                        },
+                        scales: {
+                          y: {
+                            beginAtZero: true
+                          }
+                        }
+                      }
+                    };
+                    const myChart = new Chart(ctx, config);
+                  </script>
             </div>
         </div>
     </div>
