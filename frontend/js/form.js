@@ -31,7 +31,7 @@ if (!email || !password || !submitBtn) {
                 console.log("Email:", email.value);
                 console.log("Password:", password.value);
 
-                fetch('http://127.0.0.1:5000/login-user',{
+                fetch('https://quantify-znpa.onrender.com/login-user',{
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' }, //Changed header new Headers
                 body: JSON.stringify({
@@ -57,7 +57,7 @@ if (!email || !password || !submitBtn) {
             submitBtn.addEventListener('click', (event) => {
                 event.preventDefault(); //new
 
-                fetch('http://127.0.0.1:5000/register-user', {
+                fetch('https://quantify-znpa.onrender.com/register-user', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({
