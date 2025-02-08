@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auto Restock</title>
+  <link rel ="shortcut icon" type="x-icon" href ="images/truck.png">
+  
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    
+  />
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-primary-subtle">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Auto Restock</a>
+      
+      <a href="dash.html">
+        <button class="proAddSubmitBtn btn btn-success">Back</button>
+      </a>
+    </div>
+  </nav>
+
+  <div
+    id="inventoryContainer"
+    class="d-flex flex-column align-items-center vh-100 justify-content-center"
+  ></div>
+
+  <script>
+
+    const initialData = [
+      { name: "Squid", count: 1 },
+      { name: "Octopus", count: 0 },
+      { name: "Puffer Fish", count: 0 },
+      { name: "Mussels", count: 19 },
+      { name: "Blue Crab", count: 9 },
+      { name: "Tuna", count: 10 },
+      { name: "Sardine", count: 5 }
+    ];
+
+    function saveToLocalStorage(data) {
+      localStorage.setItem("inventoryData", JSON.stringify(data));
+    }
+
+    function loadFromLocalStorage() {
+      const storedData = localStorage.getItem("inventoryData");
+      return storedData ? JSON.parse(storedData) : initialData;
+    }
+
+    
+    function toggleBatchTrack(product, newCount) {
+      
+      console.log(`Ordered more of ${product} - New count: ${newCount}`);
+      
+    }
+
+    
+    function renderInventoryRows(dataArray) {
+      const container = document.getElementById("inventoryContainer");
+      container.innerHTML = ""; 
+
+      dataArray.forEach((item, index) => {
+        
+        const row = document.createElement("div");
+        row.className = "d-flex mb-3 align-items-center";
+
+        
+        const countBtn = document.createElement("button");
+        countBtn.className = "btn bg-primary-subtle me-2 counter";
+        countBtn.textContent = item.count;
+
+        
+        const productNameBtn = document.createElement("button");
+        productNameBtn.className = "btn bg-primary-subtle me-2";
+        productNameBtn.textContent = item.name;
+
+        
+        const orderBtn = document.createElement("button");
+        orderBtn.className = "btn bg-primary-subtle me-2 add";
+        orderBtn.textContent = "Order More";
+
+        
+        orderBtn.addEventListener("click", () => {
+          
+          dataArray[index].count += 1;
+          
+          countBtn.textContent = dataArray[index].count;
+          
+          saveToLocalStorage(dataArray);
+
+          toggleBatchTrack(item.name, dataArray[index].count);
+        });
+
+
+        row.appendChild(countBtn);
+        row.appendChild(productNameBtn);
+        row.appendChild(orderBtn);
+
+        container.appendChild(row);
+      });
+    }
+
+
+    const inventoryData = loadFromLocalStorage();
+
+    renderInventoryRows(inventoryData);
+  </script>
+
+  
+</body>
+</html>
