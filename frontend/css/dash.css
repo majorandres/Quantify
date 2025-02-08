@@ -15,10 +15,7 @@ canvas{
     margin: 10px;
     background-blend-mode: hard-light;
 }
-canvas:hover{
-    
-   
-}
+
 
 button{
     background: linear-gradient(to bottom, #99c9d9 0%, #8174fa 100%);
