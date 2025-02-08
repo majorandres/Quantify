@@ -23,6 +23,13 @@ body{
     background-position: center;
     font-family: 'roboto',sans-serif;
 }
+input:hover {
+    background: linear-gradient(to bottom, #5fc1e1 0%, #2d19e0 100%);;  
+}
+
+header:hover {
+    background: linear-gradient(to bottom, #5fc1e1 0%, #2d19e0 100%);;  
+}
 
 .formOutline{
     width: 400px;
