@@ -94,8 +94,8 @@ input:focus::placeholder{
 .link:hover{
     color: rgb(85, 138, 224);
 }
-
-.alert-box{
+/* Don't need code here */
+/* .alert-box{
     position: absolute;
     top: 10%;
     left: 50%;
@@ -114,4 +114,4 @@ input:focus::placeholder{
     font-family: 'roboto',sans-serif;
     text-align: center;
     transition: 1s;
-}
+} */
