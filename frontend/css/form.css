@@ -28,7 +28,7 @@ body{
     width: 400px;
     height: auto;
     color: navy;
-    font-family: 'Marker Felt', sans-serif;
+    font-family: 'roboto',sans-serif;
 
 
 }
@@ -42,7 +42,8 @@ body{
 
 }
 
-input{
+input,
+.submit-btn{
     width: 80%;
     height: 35px;
     display: block;
@@ -54,4 +55,63 @@ input{
     padding: 15px;
     transition: .5s;
     text-transform: capitalize;
+}
+
+input::placeholder{
+
+    color: rgb(14, 14, 15);
+
+}
+
+input:focus,
+.submit-btn:hover{
+    background : rgb(85, 138, 224);
+    color: rgb(0, 0, 0);
+}
+
+input:focus::placeholder{
+    color: black;
+}
+
+
+.submit-btn{
+    width: auto;
+    padding: 0 20px;
+    cursor: pointer;
+    margin: 50px auto 0;
+
+}
+
+.link{
+    text-align: center;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: black;
+    display: block;
+    margin: 30px auto;
+}
+
+.link:hover{
+    color: rgb(85, 138, 224);
+}
+
+.alert-box{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 55px;
+    max-width: 90%;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    text-transform: capitalize;
+    background: rgb(225, 72, 72);
+    border-top: 10px solid rgb(225, 72, 72);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 5px;
+    color:rgb(255, 255, 255);
+    font-family: 'roboto',sans-serif;
+    text-align: center;
+    transition: 1s;
 }
