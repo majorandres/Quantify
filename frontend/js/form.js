@@ -90,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
     //table
     const tableBody = document.querySelector('.table tbody'); 
     const productNameInput = document.querySelector('.productNameInput');
-    const productCategoryInput = document.querySelector('#categoryInput');
     const productQuantityInput = document.querySelector('.productQuantityInput');
     const productPriceInput = document.querySelector('.productPriceInput');    
 
@@ -113,7 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         //get data
         const productName = productNameInput.value;
-        const category = productCategoryInput.value;
         const quantity = productQuantityInput.value;
         const price = productPriceInput.value;
 
@@ -123,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${productName}</td>
             <td>${quantity}</td>
             <td>$${price}</td>
-            <td>${category || 'No Category'}</td>
             <td>
                 <button class="btn btn-warning btn-sm">Edit</button>
                 <button class="btn btn-danger btn-sm">Delete</button>
@@ -135,7 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         //reset
         productNameInput.value = '';
-        productCategoryInput.value = '';
         productQuantityInput.value = '';
         productPriceInput.value = '';
 
