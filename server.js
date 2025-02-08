@@ -16,7 +16,7 @@ const db = knex({
 
 const app = express();
 
-let initalPath = path.join(__dirname, "public")
+let initalPath = path.join(__dirname, "frontend")
 
 app.use(cors());
 app.use(bodyParser.json());
