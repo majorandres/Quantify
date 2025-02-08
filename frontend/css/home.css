@@ -13,7 +13,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background: linear-gradient(to bottom, #33ccff 0%, #2d19e0 100%);
     background-size: cover;
     background-position: center;
     font-family: 'Roboto Condensed',sans-serif;
@@ -21,7 +21,7 @@ body{
 
 p{
     font-weight: bold;
-    color: rgb(40, 83, 225);
+    color: rgb(255, 255, 255);
     font-family: 'Roboto Condensed', Times, serif;
     
 }
@@ -81,7 +81,7 @@ p{
 .welcome{
     font-family: 'Roboto Condensed';
     font-size: 100px;
-    color: navy;
+    color: rgb(248, 248, 248);
     font-weight: 800;
     text-transform: capitalize;
     
