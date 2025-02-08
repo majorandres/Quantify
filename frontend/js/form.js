@@ -16,7 +16,24 @@ const password = document.querySelector('.password');
 const submitBtn = document.querySelector('.submit-btn');
 
 if(name == null){
-
+    submitBtn.addEventListener('click', () => {
+        fetch('/login-user',{
+        method: 'post',
+        headers: new Headers({'Content-Type' : 'applications/json'}),
+        body: JSON.stringify({
+            email: email.value,
+            password: password.value
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.name){
+            alert('login successful');
+        } else{
+            alert(data);
+        }
+    })
+})
 
 } else {
     submitBtn.addEventListener('click', () => {
