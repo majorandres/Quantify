@@ -10,18 +10,16 @@
 </head>
 <body>
     
-   <div class = "form">
-    <h1 class = "heading"> Login </h1>
-        <input type = "userName" placeholder="User" autocomplete="off" class = "user" required>
-        <input type = "password" placeholder="Password" autocomplete="off" class = "password" required>
-        
-
-    <a href="dash.html">
-        <button class="submit-btn">Login</button>
-      </a>
-      <a href="register.html" class = "link">Don't have an account? Make one here!</a>
-
-   </div>
-  <script src = "js/form.js"></script>
+    <form id="login-form" class="form">
+        <h1 class="heading">Login</h1>
+        <input type="email" name="email" placeholder="Email" autocomplete="off" class="user" required>
+        <input type="password" name="password" placeholder="Password" autocomplete="off" class="password" required>
+    
+        <button type="submit" class="submit-btn">Login</button>
+    </form>
+    <a href="register.html" class="link">Don't have an account? Make one here!</a>
+    
+    <script src="js/form.js"></script>
+    
 </body>
 </html>
