@@ -1,6 +1,7 @@
 const express = require ('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const knex = require('knex');
 
 const db = knex({
@@ -17,6 +18,7 @@ const app = express();
 
 let initalPath = path.join(__dirname, "public")
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(initalPath));
 
@@ -77,6 +79,6 @@ app.post('/login-user', (req, res) => {
 })
 
 
-app.listen(5500, (req, res) => {
-    console.log('listening on port 5500......')
+app.listen(5000, (req, res) => {
+    console.log('listening on port 5000......')
 })
