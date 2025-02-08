@@ -25,3 +25,7 @@ button{
 button:hover{
     border-color: rgba(8, 39, 62, 0.8);
 }
+
+.hidden-columns {
+    display: none
+}
