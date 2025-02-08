@@ -209,20 +209,19 @@ p{
 
 #moving-banner p {
     display: inline-block;
-    animation: scroll-text 12s linear infinite;
+    animation: scroll-text 15s linear infinite;
     width: 70%;
     color: black;
-    background-image: url("https://www.publicdomainpictures.net/pictures/470000/nahled/vintage-clipart-banner-label-1664965789kpR.png");
-    background-size: cover;
-    background-position: calc(50% + 50px) 30%;
-    padding: 10px;
+    background-image: url("https://png.pngtree.com/png-vector/20230912/ourmid/pngtree-old-long-banner-documents-png-image_9523515.png");
+    background-size: 100% 100%;
+    padding: 12px;
 }
 
 @keyframes scroll-text {
     0% {
-        transform: translateX(-100%);
+        transform: translateX(-130%);
     }
     100% {
-        transform: translateX(100%);
+        transform: translateX(130%);
     }
 }
