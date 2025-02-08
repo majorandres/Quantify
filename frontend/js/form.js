@@ -80,3 +80,23 @@ if (!email || !password || !submitBtn) {
     }
 }
 
+// inventory
+document.addEventListener('DOMContentLoaded', () => {
+    const showModalBtn = document.getElementById('showModalBtn');
+    const proAddSection = document.querySelector('.proAddSection');
+    const cancelBtn = document.querySelector('.proAddCancelBtn');
+
+    showModalBtn.addEventListener('click', () => {
+        proAddSection.classList.remove('hidden');
+    });
+
+    cancelBtn.addEventListener('click', () => {
+        proAddSection.classList.add('hidden');
+    });
+    
+    proAddSection.addEventListener('click', (event) => {
+        if (event.target === proAddSection) {
+            proAddSection.classList.add('hidden');
+        }
+    });
+});
