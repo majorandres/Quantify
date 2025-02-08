@@ -24,10 +24,11 @@ body{
     font-family: 'roboto',sans-serif;
 }
 
-.form{
+.formOutline{
     width: 400px;
     height: auto;
     color: navy;
+    display: center;
     font-family: 'roboto',sans-serif;
 
 
