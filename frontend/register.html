@@ -9,7 +9,8 @@
         <link rel = "stylesheet" href="css/form.css">
 </head>
 <body>
-    <div class = "form">
+    <!-- old -->
+    <!-- <div class = "form">
         <h1 class = "heading">Register</h1>
         <input type = "text" placeholder="name" autocomplete="off" class ="name" required>
         <input type = "email" placeholder="email" autocomplete="off" class ="name" required>
@@ -20,7 +21,23 @@
         </a>
         <a href = "login.html" class = "link" >Already have an account? Log In Here!</a>
 
-    </div>
+    </div> -->
+
+    <!-- new!-->
+
+    <form id="register-form" class="form">
+        <h1 class="heading">Register</h1>
+        <input type="text" name="name" placeholder="Name" autocomplete="off" class="name" required>
+        <input type="email" name="email" placeholder="Email" autocomplete="off" class="email" required>
+        <input type="password" name="password" placeholder="Password" autocomplete="off" class="password" required>
+    
+        <button type="submit" class="submit-btn">Register</button>
+    </form>
+    
+    <a href="login.html" class="link">Already have an account? Log In Here!</a>
+    
+
+    <!--    -->
     <script src ="js/form.js"></script>
 </body>
 </html>
