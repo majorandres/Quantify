@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const knex = require('knex');
 
+//Gizmo's SQL Database
 const db = knex({
     client: 'pg',
     connection: {
