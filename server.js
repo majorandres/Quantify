@@ -24,8 +24,8 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(initalPath, "index.html"));
 })
 
-app.get('/login', (req, res) => {
-    res.sendFile(path.join(initalPath, "login.html"));
+app.get('frontend/login.html', (req, res) => {
+    res.sendFile(path.join(initalPath, "frontend/login.html"));
 })
 
 app.get('/register', (req, res) => {
