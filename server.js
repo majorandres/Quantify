@@ -28,6 +28,7 @@ app.get('frontend/login.html', (req, res) => {
     res.sendFile(path.join(initalPath, "/frontend/login.html"));
 })
 
+
 app.get('/register', (req, res) => {
     res.sendFile(path.join(initalPath, "register.html"));
 })
