@@ -29,3 +29,7 @@ button:hover{
 .hidden-columns {
     display: none
 }
+.container-fluid{
+    background: linear-gradient(to bottom, #6fd4f6 0%, #5340fe 100%);
+    
+}
