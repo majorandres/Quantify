@@ -16,8 +16,16 @@ body{
     background-color: white;
     background-size: cover;
     background-position: center;
-    font-family: 'roboto',sans-serif;
+    font-family: 'Roboto Condensed',sans-serif;
 }
+
+p{
+    font-weight: bolder;
+    color: rgb(40, 83, 225);
+    font-family: 'Roboto Condensed', Times, serif;
+    
+}
+
 .container{
     position: relative;
     width: 90%;
@@ -59,7 +67,7 @@ body{
 }
 
 .welcome{
-    font-family: 'dosis';
+    font-family: 'Roboto Condensed';
     font-size: 100px;
     color: navy;
     font-weight: 800;
