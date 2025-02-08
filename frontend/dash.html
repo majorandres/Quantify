@@ -34,6 +34,16 @@
                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                 <canvas id="myChart" width="400" height="200"></canvas>
                 <script>
+                    const costData = {
+                      labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                      datasets: [{
+                        label: 'Costs Over Time',
+                        data: [500, 600, 700, 800, 550, 650],
+                        borderColor:'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderWidth: 2
+                      }]
+                    };
                     const ctx = document.getElementById('myChart').getContext('2d');
                     const data = {
                       labels: ['January', 'February', 'March', 'April', 'May', 'June'],
@@ -63,15 +73,25 @@
                       }
                     };
                     const myChart = new Chart(ctx, config);
+
+                    function showCostGraph() {
+                      myChart.data = costData;
+                      myChart.update();
+                    }
+
+                    function showSalesGraph() {
+                      myChart.data = salesData;
+                      myChart.update();
+                    }
                 </script>
             </div>
         </div>
         <div class="col-1">
             <div class="d-flex flex-column align-items-center vh-100 justify-content-center">
-                <button type="button" class="btn btn-primary">
+                <button type="button" class="btn btn-primary" onclick="showCostGraph()">
                     <i class="bi bi-currency-dollar"></i><br>Cost
                 </button>
-                <button type="button" class="btn btn-primary">Daily<br>Sales</button>
+                <button type="button" class="btn btn-primary" onclick="showSalesGraph()">Daily<br>Sales</button>
             </div>
         </div>
     </div>
