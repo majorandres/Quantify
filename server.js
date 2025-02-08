@@ -27,9 +27,9 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(initalPath, "index.html"));
 })
 
-app.get('frontend/login.html', (req, res) => {
-    res.sendFile(path.join(initalPath, "/frontend/login.html"));
-})
+app.get('/frontend/login.html', (req, res) => {
+    res.sendFile(path.join(initalPath, "frontend", "login.html"));
+});
 
 
 app.get('/register', (req, res) => {
@@ -60,24 +60,33 @@ app.post('/register-user', (req, res) => {
     }
 })
 
-app.post('/login-user', (req, res) => {
-    const { email, password} = req.body;
+app.post('/login-user', async (req, res) => {
+    const { email, password } = req.body;
 
-    db.select('name', 'email')
-    .from('users')
-    .where({
-        email: email,
-        password: password
-    })
-    .then(data => {
-        if(data.length){
-            res.json(data[0]);
+    if (!email || !password) {
+        return res.json("Please fill in all fields.");
+    }
 
-        }else{
-            res.json('email or password is incorrect');
+    try {
+        const user = await db.select('*').from('users').where({ email }).first();
+
+        if (!user) {
+            return res.json("Email does not exist.");
         }
-    })
-})
+
+        if (!user.password || user.password !== password) {
+            return res.json("Incorrect password.");
+        }
+
+        res.json({ name: user.name, email: user.email });
+
+    } catch (error) {
+        console.error("Error logging in:", error);
+        res.status(500).json("Internal server error.");
+    }
+});
+
+
 
 
 app.listen(5000, (req, res) => {

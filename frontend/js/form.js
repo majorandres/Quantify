@@ -1,13 +1,38 @@
 //form loading animation
 
-const form = document.querySelector('.form');
-if (form) {
-    [...form.children].forEach((item, i) => {
-        setTimeout(() => {
-            item.style.opacity = "1"; 
-        }, i * 100);
+const loginForm = document.getElementById("login-form");
+if (loginForm) {
+    loginForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        console.log("Login form submitted!");
+
+        const email = document.querySelector(".user").value;
+        const password = document.querySelector(".password").value;
+
+        console.log("Email:", email);
+        console.log("Password:", password);
+
+        fetch("http://127.0.0.1:5000/login-user", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.name) {
+                alert("Login Successful!");
+                setTimeout(() => {
+                    window.location.href = "dash.html";
+                }, 500);
+            } else {
+                alert("Login failed: " + data);
+            }
+        })
+        .catch(err => console.error("Error:", err));
     });
 }
+
 
 // form validation
 
