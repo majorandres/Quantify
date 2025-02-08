@@ -31,7 +31,11 @@ if(name == null){
         })
         .then(res => res.json())
         .then(data => {
-
+            if(data.name){
+                alert('register successful');
+            } else{
+                alert(data);
+            }
         })
     })
 }
