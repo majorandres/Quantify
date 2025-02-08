@@ -18,7 +18,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background: linear-gradient(to bottom, #33ccff 0%, #2d19e0 100%);
     background-size: cover;
     background-position: center;
     font-family: 'roboto',sans-serif;
@@ -29,7 +29,8 @@ body{
     height: auto;
     color: navy;
     display: center;
-    font-family: 'roboto',sans-serif;
+    font-family: 'Playfair Display',sans-serif;
+  
 
 
 }
@@ -39,6 +40,7 @@ body{
     text-align: center;
     font-size: 80px;
     font-weight: 300;
+    font-family: 'Playfair Display';
     margin-bottom: 50px;
 
 }

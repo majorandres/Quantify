@@ -47,8 +47,7 @@
                         borderWidth: 2
                       }]
                     };
-                    const ctx = document.getElementById('myChart').getContext('2d');
-                    const data = {
+                    const salesData = {
                       labels: ['January', 'February', 'March', 'April', 'May', 'June'],
                       datasets: [{
                         label: 'Items Sold',
@@ -57,10 +56,11 @@
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
                         borderWidth: 2
                       }]
-                    }; 
-                    const config = {
-                      type: 'line',   
-                      data: data,
+                    };
+                    const ctx = document.getElementById('myChart').getContext('2d');
+                    let myChart = new Chart(ctx, {
+                      type: 'line',
+                      data: costData,
                       options: {
                         responsive: true,
                         plugins: {
@@ -74,8 +74,7 @@
                           }
                         }
                       }
-                    };
-                    const myChart = new Chart(ctx, config);
+                    });
 
                     function showCostGraph() {
                       myChart.data = costData;
