@@ -4,7 +4,12 @@ a{
 }
 body{
     background: linear-gradient(to bottom, #33ccff 0%, #2d19e0 100%);
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+
 }
+
 canvas{
     width: 400px;
     height: 400px;
