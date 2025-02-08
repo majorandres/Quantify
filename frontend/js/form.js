@@ -107,15 +107,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    modalForm.addEventListener('submit', (event) => {
-        event.preventDefault();
+    const loadProducts = () => {
+        const savedProducts = JSON.parse(localStorage.getItem('products')) || [];
+        savedProducts.forEach(product => {
+            addProductToTable(product.name, product.quantity, product.price);
+        });
+    };
 
-        //get data
-        const productName = productNameInput.value;
-        const quantity = productQuantityInput.value;
-        const price = productPriceInput.value;
-
-        //table row
+    // Function to add a product row to the table
+    const addProductToTable = (productName, quantity, price) => {
         const newRow = document.createElement('tr');
         newRow.innerHTML = `
             <td>${productName}</td>
@@ -126,16 +126,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 <button class="btn btn-danger btn-sm">Delete</button>
             </td>
         `;
-
-        //add to table
         tableBody.appendChild(newRow);
+    };
 
-        //reset
+    modalForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        // Get data
+        const productName = productNameInput.value;
+        const quantity = productQuantityInput.value;
+        const price = productPriceInput.value;
+
+        // Add product to the table
+        addProductToTable(productName, quantity, price);
+
+        // Save data to localStorage
+        const savedProducts = JSON.parse(localStorage.getItem('products')) || [];
+        savedProducts.push({ name: productName, quantity, price });
+        localStorage.setItem('products', JSON.stringify(savedProducts));
+
+        // Reset inputs
         productNameInput.value = '';
         productQuantityInput.value = '';
         productPriceInput.value = '';
 
-        //hide after
+        // Hide the modal
         proAddSection.classList.add('hidden');
     });
+
+    // Load the saved products when the page is loaded
+    loadProducts();
 });
