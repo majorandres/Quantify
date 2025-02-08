@@ -191,6 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
             addProductToTable(product.name, product.quantity, product.price, index);
         });
     };
+    
 
     loadProducts();
 });
