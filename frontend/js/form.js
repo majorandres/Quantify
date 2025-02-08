@@ -1,67 +1,82 @@
 //form loading animation
 
-const form = [...document.querySelector('.form').children];
-
-form.forEach((item, i) => {
-    setTimeout(() => {
-        item.computedStyleMap.opacity = 1;
-    }, i*100);
-})
+const form = document.querySelector('.form');
+if (form) {
+    [...form.children].forEach((item, i) => {
+        setTimeout(() => {
+            item.style.opacity = "1"; 
+        }, i * 100);
+    });
+}
 
 // form validation
 
 const name = document.querySelector('.name') || null;
-const email = document.querySelector('.email');
+const email = document.querySelector('.user') || document.querySelector('.email');
+
 const password = document.querySelector('.password');
 const submitBtn = document.querySelector('.submit-btn');
 
-if(name == null){
-    submitBtn.addEventListener('click', (event) => {
-        event.preventDefault();
-
-        fetch('http://127.0.0.1:5000/login-user',{
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' }, //Changed header new Headers
-        body: JSON.stringify({
-            email: email.value,
-            password: password.value
-        })
-    })
-    .then(res => res.json())
-    .then(data => {
-        if(data.name){
-            alert('Login Successful!');
-            window.location.href = 'dash.html'; //New
-        } else{
-            alert(data);
-        }
-    })
-    .catch(err => console.error('Error:', err));
-});
-
+if (!email || !password || !submitBtn) {
+    console.error("One or more elements not found!", { email, password, submitBtn });
 } else {
-    submitBtn.addEventListener('click', (event) => {
-        event.preventDefault(); //new
+    console.log("All elements found! Listening for button click.");
 
-        fetch('http://127.0.0.1:5000/register-user', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                name: name.value,
-                email: email.value,
-                password: password.value
+
+        if(!name){
+            submitBtn.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                console.log("Login button worked!");
+                console.log("Email:", email.value);
+                console.log("Password:", password.value);
+
+                fetch('http://127.0.0.1:5000/login-user',{
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }, //Changed header new Headers
+                body: JSON.stringify({
+                    email: email.value,
+                    password: password.value
+                })
             })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(data.name){
-                alert('register successful');
-                window.location.href = 'login.html';
-            } else{
-                alert(data);
-            }
-        })
-        .catch(err => console.error('Error:', err));
-    });
+            .then(res => res.json())
+            .then(data => {
+                if(data.name){
+                    alert('Login Successful!');
+                    setTimeout(() => {
+                        window.location.href = 'dash.html';
+                    }, 500);                    
+                } else{
+                    alert(data);
+                }
+            })
+            .catch(err => console.error('Error:', err));
+        });
+
+        } else {
+            submitBtn.addEventListener('click', (event) => {
+                event.preventDefault(); //new
+
+                fetch('http://127.0.0.1:5000/register-user', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        name: name.value,
+                        email: email.value,
+                        password: password.value
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.name){
+                        alert('register successful');
+                        window.location.href = 'login.html';
+                    } else{
+                        alert(data);
+                    }
+                })
+                .catch(err => console.error('Error:', err));
+        });
+    }
 }
 
